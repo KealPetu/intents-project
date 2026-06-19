@@ -2,6 +2,7 @@
   "expo": {
     "name": "intents-project",
     "slug": "intents-project",
+    "scheme": "intentsproject",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,34 +18,25 @@
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.intentsproject",
-      "intentFilters": [
-        {
-          "action": "SEND",
-          "category": [
-            "DEFAULT"
-          ],
-          "data": [
-            {
-              "mimeType": "text/plain"
-            }
-          ]
-        },
-        {
-          "action": "SEND",
-          "category": [
-            "DEFAULT"
-          ],
-          "data": [
-            {
-              "mimeType": "image/*"
-            }
-          ]
-        }
-      ]
+      "package": "com.anonymous.intentsproject"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-share-intent",
+        {
+          "iosActivationRules": {
+            "NSExtensionActivationSupportsText": true,
+            "NSExtensionActivationSupportsAttachmentsWithMaxCount": 1
+          },
+          "androidIntentFilters": [
+            "text/plain",
+            "image/*"
+          ]
+        }
+      ]
+    ]
   }
 }
